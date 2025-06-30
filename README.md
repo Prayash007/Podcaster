@@ -1,26 +1,21 @@
-Here’s a **cleaned-up and minimalistic version** of the `README.md` you're referencing — updated and adjusted for your **Python Flask backend project**, not the original JavaScript one:
-
----
-
-## ✅ `README.md` (Minimal Flask Version)
-
 ````markdown
-# 📡 Podcaster Backend
+# 🎙️ Podcastr
 
-A Flask-based backend system for analyzing image and social data using Python tools like OpenCV, Instaloader, and Pandas.
+A modern, full-stack podcast application built using Next.js, Clerk for authentication, and Convex for backend logic and data management.
 
 ---
 
-## 🤸 Quick Start
+## <a name="quick-start">🤸 Quick Start</a>
 
-Follow these steps to set up the project locally.
+Follow these steps to set up the project locally on your machine.
 
 ### **Prerequisites**
 
-Make sure you have the following installed:
+Ensure you have the following installed:
 
-- [Python 3.8+](https://www.python.org/)
 - [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
 ---
 
@@ -33,78 +28,71 @@ cd Podcaster
 
 ---
 
-### **Install Dependencies**
+### **Installation**
+
+Install dependencies using:
 
 ```bash
-pip install -r requirements.txt
+npm install
 ```
 
 ---
 
 ### **Set Up Environment Variables**
 
-Create a `.env` file in the root:
+Create a `.env` file in the root and add the following:
 
 ```env
-USERNAME=your_instagram_username
-PASSWD=your_instagram_password
+CONVEX_DEPLOYMENT=
+NEXT_PUBLIC_CONVEX_URL=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL='/sign-in'
+NEXT_PUBLIC_CLERK_SIGN_UP_URL='/sign-up'
 ```
+
+> Replace with your actual keys from [Convex](https://www.convex.dev/) and [Clerk](https://clerk.com/).
 
 ---
 
-### **Run the Project**
+### **Running the Project**
 
 ```bash
-python app.py
+npm run dev
 ```
 
-or (for production):
-
-```bash
-gunicorn app:app
-```
+Then open: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🕸️ Snippets
+## <a name="snippets">🕸️ Snippets</a>
 
 <details>
-<summary>Sample API Request</summary>
+<summary>Example: Login Redirect</summary>
 
-```bash
-curl -X POST http://localhost:5000/predict \
-     -H "Content-Type: application/json" \
-     -d '{"username": "exampleuser"}'
+```tsx
+import { useClerk } from "@clerk/nextjs";
+
+const { signIn } = useClerk();
+signIn.redirectToSignIn({ redirectUrl: "/dashboard" });
 ```
 
 </details>
 
 ---
 
-## 📦 Tech Stack
+## 🛠️ Tech Stack
 
-* Flask
-* Instaloader
-* OpenCV
-* Pandas
-* BeautifulSoup
-* Gunicorn (for deployment)
-
----
-
-## 🛠️ Deployment
-
-Can be deployed on [Render](https://render.com/) or any WSGI-compatible server.
+* Next.js 14+
+* Clerk Auth
+* Convex Backend
+* Tailwind CSS
+* TypeScript
 
 ---
 
 ## 🧠 Author
 
-Built with ❤️ by [Prayash](https://github.com/Prayash007)
+Made with 🎧 by [Prayash](https://github.com/Prayash007)
 
-```
-
----
-
-Let me know if you want a `Frontend + Backend` version of the README or want badges (build, license, stars) added at the top.
 ```
